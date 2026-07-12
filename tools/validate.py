@@ -13,7 +13,7 @@ CELL_ADVANCES = {600, 1200, 1800}   # single + double/triple-wide ligatures
 
 ok = True
 for st, expect_weight in STYLES.items():
-    path = os.path.join(TTF, f'ShellbackMono-{st}.ttf')
+    path = os.path.join(TTF, f'TerminalWorkbenchMono-{st}.ttf')
     f = TTFont(path)
     post, os2, head = f['post'], f['OS/2'], f['head']
     name, hmtx = f['name'], f['hmtx']

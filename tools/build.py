@@ -1,4 +1,4 @@
-"""Compile the Shellback Mono family (TTF + WOFF2).
+"""Compile the Terminal Workbench Mono family (TTF + WOFF2).
 
 Six static styles: Regular, Medium, Bold and their italics. Styles past
 the RIBBI four use typographic-family name records (16/17) so all six group
@@ -26,8 +26,8 @@ from fontTools.ttLib.removeOverlaps import removeOverlaps
 from glyphs import GLYPHS, LIGATURES, ALTERNATES, NOTDEF, EXTRA_NAMES
 from glyphlab import ADV
 
-FAMILY = "Shellback Mono"
-VERSION = "1.100"
+FAMILY = "Terminal Workbench Mono"
+VERSION = "2.000"
 COPYRIGHT = "Copyright 2026 Real-Fruit-Snacks"
 UPM = 1000
 ASCENT, DESCENT = 960, -260
@@ -65,7 +65,7 @@ REG = 0x40 | 0x80       # REGULAR | USE_TYPO_METRICS
 BOLD = 0x20 | 0x80      # BOLD    | USE_TYPO_METRICS
 ITAL = 0x01 | 0x80      # ITALIC  | USE_TYPO_METRICS
 BDIT = 0x21 | 0x80      # BOLD | ITALIC | USE_TYPO_METRICS
-MEDFAM = "Shellback Mono Medium"  # legacy family for the Medium pair
+MEDFAM = "Terminal Workbench Mono Medium"  # legacy family for the Medium pair
 
 INSTANCES = [
     # sub, params, skew, weight, legacy_family, ribbi_style, typo_sub, fsSel, macStyle
@@ -193,14 +193,15 @@ def assemble(sub, P, skew_deg, weight, legacy_fam, ribbi, typo_sub,
         'psName': ps_name,
         'designer': 'Real-Fruit-Snacks',
         'manufacturer': 'Real-Fruit-Snacks',
-        'description': 'A water-cooled monospace for security notes, '
-                       'terminals and Obsidian vaults.',
+        'description': 'The official monospace of the Terminal Workbench '
+                       'design system: clean geometric letterforms for '
+                       'terminals, notes and code.',
         'licenseDescription': 'Licensed under the SIL Open Font License, '
                               'Version 1.1.',
         'licenseInfoURL': 'https://openfontlicense.org',
     }, mac=False)   # Windows-platform name records only
-    # Typographic family/subfamily so the Medium pair groups under "Shellback
-    # Mono" in modern apps; omitted for RIBBI styles to avoid redundant records.
+    # Typographic family/subfamily so the Medium pair groups under "Terminal
+    # Workbench Mono" in modern apps; omitted for RIBBI styles to avoid redundant records.
     if typo_sub is not None:
         name = fb.font['name']
         name.setName(FAMILY, 16, 3, 1, 0x409)
